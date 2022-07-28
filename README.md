@@ -7,5 +7,4 @@ TODO
 - [x] Slack Bot Send Message Function
 - [x] Slack Bot Checking Assignment
 - [x] Slack Bot Send Notification
-- [ ] Slack Bot Real Time Checking
-- [ ] Slack Bot Command For Setting Assignment
+- [ ] Slack Bot Send Notification Fix
