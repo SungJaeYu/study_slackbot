@@ -1,14 +1,15 @@
-import os
-from slack_sdk.rtm_v2 import RTMClient
+from slack_sdk import WebClient
 import baekjun as bkj
 from datetime import date, datetime, timedelta
 
+from secret import USERS, NAMES, PROBLEMS
+
 class slack_bot:
 
-    def __init__(self, token):
-        self.client = RTMClient(token)
+    def __init__(self, token, week):
+        self.client = WebClient(token)
         self.done_date = date(2022, 8, 2)
-        self.week = 3
+        self.week = week
 
     def send_message(self, channel, text):
         response = self.client.web_client.chat_postMessage(
@@ -24,25 +25,17 @@ class slack_bot:
         return False
 
     def check_assignment(self):
-        problem_id = problem_list[self.week]
+        problem_id = PROBLEMS[self.week]
         done_list = []
-        for i, user in enumerate(users):
+        for i, user in enumerate(USERS):
             done = self.check_assignment_user(user, problem_id)
             if done == False:
-                done_list.append(name_list[i] + "Fail")
+                done_list.append(NAMES[i] + "Fail")
             else:
-                done_list.append(name_list[i] + "Success")
+                done_list.append(NAMES[i] + "Success")
         
         channel = "#" + self.week + "주차"
         for check_noti in done_list:
             self.send_message(channel, check_noti)
         # TODO : 연속된 한개의 메시지로 출력하도록 수정
-        
-    def time_check(self):
-        if date.now() == self.done_date:
-            self.check_assignment()
-            self.done_date = self.done_date + timedelta(days=7)
-
-
-        
 
