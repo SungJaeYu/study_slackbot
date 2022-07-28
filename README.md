@@ -4,7 +4,8 @@ Slackbot to check assignments and send notifications, For Study Group
 
 TODO
 - [x] Baekjun API Make
-- [ ] Slack Bot Send Message Function
-- [ ] Slack Bot Checking Assignment
-- [ ] Slack Bot Send Notification
+- [x] Slack Bot Send Message Function
+- [x] Slack Bot Checking Assignment
+- [x] Slack Bot Send Notification
+- [ ] Slack Bot Real Time Checking
 - [ ] Slack Bot Command For Setting Assignment
