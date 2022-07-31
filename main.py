@@ -12,7 +12,7 @@ def rank_check():
 
 
 def main():
-    rank_check()
+    week_check()
 
 if __name__ == '__main__':
     main()
